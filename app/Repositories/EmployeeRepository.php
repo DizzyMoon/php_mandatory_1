@@ -54,7 +54,7 @@ class EmployeeRepository {
     $stmt->execute([
       $employee->first_name,
       $employee->last_name,
-      $employee->email,
+      $employee->email_address,
       $employee->birth_date,
       $employee->department_id,
     ]);

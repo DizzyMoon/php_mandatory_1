@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+require_once __DIR__ ."/../Models/Project.php";
+
 use \App\Repositories\ProjectRepository;
 use \App\Models\Project;
 

@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+require_once __DIR__ . "/../Models/Employee.php";
+
 use \App\Repositories\EmployeeRepository;
 use \App\Models\Employee;
 

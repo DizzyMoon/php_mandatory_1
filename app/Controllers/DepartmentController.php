@@ -1,7 +1,8 @@
 <?php
 
-use App\Services\DepartmentService;
+namespace App\Controllers;
 
+use App\Services\DepartmentService;
 
 class DepartmentController {
   private $service;
@@ -21,8 +22,9 @@ class DepartmentController {
         $this->service->createDepartment(
           $_POST['name']
         );
-        header('Location: /departments');
-      } catch (Exception $e) {
+        header('Location: /mandatory_1/departments');
+        exit;
+      } catch (\Exception $e) {
         echo 'Error: ' . $e->getMessage();
       }
     }

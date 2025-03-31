@@ -21,14 +21,14 @@ class DepartmentRepository {
     while( $row = $stmt->fetch(PDO::FETCH_ASSOC) ){
       $departments[] = new Department(
         $row["id"],
-        $row["name"],
+        $row["name"]
       );
     }
     return $departments;
   }
 
   public function getDepartmentById($id) {
-    $stmt = $this->conn->prepare("SELECT * FROM" . $this->table . "WHERE id = ?");
+    $stmt = $this->conn->prepare("SELECT * FROM" . $this->table . " WHERE id = ?");
     $stmt->bindParam("1", $id);
     $stmt->execute();
     $row = $stmt->fetch(PDO::FETCH_ASSOC);

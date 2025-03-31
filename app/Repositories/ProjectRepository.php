@@ -44,7 +44,7 @@ class ProjectRepository {
   }
 
   public function create(Project $project) {
-    $stmt = $this->conn->prepare('INSERT INTO' . $this->table . '(name) VALUES (?)');
+    $stmt = $this->conn->prepare('INSERT INTO ' . $this->table . '(name) VALUES (?)');
     $stmt->execute([
       $project->name
     ]);

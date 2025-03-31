@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+require_once __DIR__ . "/../Models/Department.php";
+
 use \App\Repositories\DepartmentRepository;
 use \App\Models\Department;
 

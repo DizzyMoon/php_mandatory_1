@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Controllers;
 use App\Services\ProjectService;
 
 class ProjectController {
@@ -14,14 +15,19 @@ class ProjectController {
     include __DIR__ . '/../../views/projects/index.php';
   }
 
+  public function create() {
+    include __DIR__ . '/../../views/projects/create.php';
+  }
+
   public function store() {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       try {
         $this->service->createProject(
           $_POST['name']
         );
-        header('Location: /projects');
-      } catch (Exception $e) {
+        header('Location: /mandatory_1/projects');
+        exit;
+      } catch (\Exception $e) {
         echo "Error: " . $e->getMessage();
       }
     }
