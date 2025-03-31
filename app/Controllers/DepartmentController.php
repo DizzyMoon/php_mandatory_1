@@ -16,6 +16,11 @@ class DepartmentController {
     include __DIR__ . "/../../views/departments/index.php";
   }
 
+  public function show($id) {
+    $department = $this->service->getDepartmentById($id);
+    include __DIR__ . "/../../views/departments/show.php";
+  }
+
   public function store() {
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
       try {

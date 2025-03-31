@@ -24,6 +24,11 @@ class EmployeeController {
     include __DIR__ . '/../../views/employees/index.php';
   }
 
+  public function show($id) {
+    $employee = $this->service->getEmployeeById($id);
+    include __DIR__ . '/../../views/employees/show.php';
+  }
+
   public function store() {    
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       try {

@@ -31,6 +31,7 @@ $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 echo "Current URI: " . $requestUri . "\n";
 
+// Departments
 if($requestMethod == 'GET' && $requestUri == '/mandatory_1/departments') {
   $departmentController->index();
 } elseif ($requestMethod == "GET" && $requestUri == "/mandatory_1/"){
@@ -39,18 +40,28 @@ if($requestMethod == 'GET' && $requestUri == '/mandatory_1/departments') {
   $departmentController->store(); 
 } elseif ($requestMethod == 'GET' && $requestUri == '/mandatory_1/departments/create'){
   include __DIR__ . "/../views/departments/create.php";
+} elseif (preg_match('/mandatory_1\/departments\/(\d+)/', $requestUri, $matches)){
+  $departmentController->show($matches[1]);
+
+// Employees
 } elseif ($requestMethod == 'GET' && $requestUri == '/mandatory_1/employees'){
   $employeeController->index();
 } elseif ($requestMethod == 'GET' && $requestUri == '/mandatory_1/employees/create'){
   $employeeController->create();
 } elseif ($requestMethod == 'POST' && $requestUri == '/mandatory_1/employees/'){
   $employeeController->store();
+} elseif (preg_match('/mandatory_1\/employees\/(\d+)/', $requestUri, $matches)){
+  $employeeController->show($matches[1]);
+
+// Projects
 } elseif ($requestMethod == 'GET' && $requestUri == '/mandatory_1/projects'){
   $projectController->index();
 } elseif ($requestMethod == 'GET' && $requestUri == '/mandatory_1/projects/create') {
   $projectController->create();
 } elseif ($requestMethod == 'POST' && $requestUri == '/mandatory_1/projects'){
   $projectController->store();
+} elseif (preg_match('/mandatory_1\/projects\/(\d+)/', $requestUri, $matches)){
+  $projectController->show($matches[1]);
 }
 
 else {

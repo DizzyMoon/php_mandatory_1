@@ -15,6 +15,16 @@ class ProjectController {
     include __DIR__ . '/../../views/projects/index.php';
   }
 
+  public function show($id) {
+    $project = $this->service->getProjectById($id);
+    if (!$project) {
+      echo 'Project not found.';
+      return;
+    }
+
+    include __DIR__ . '/../../views/projects/show.php';
+  }
+
   public function create() {
     include __DIR__ . '/../../views/projects/create.php';
   }

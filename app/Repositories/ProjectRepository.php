@@ -28,9 +28,8 @@ class ProjectRepository {
   }
 
   public function getById($id) {
-    $stmt = $this->conn->prepare('SELECT * FROM' . $this->table . 'WHERE id = ?');
-    $stmt->bindParam('1', $id);
-    $stmt->execute();
+    $stmt = $this->conn->prepare('SELECT * FROM ' . $this->table . ' WHERE id = ?');
+    $stmt->execute([$id]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($row) {
