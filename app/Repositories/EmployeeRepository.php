@@ -48,6 +48,11 @@ class EmployeeRepository {
     return null;
   }
 
+  public function update($id, $first_name, $last_name, $email_address, $birth_date, $department_id) {
+    $stmt = $this->conn->prepare('UPDATE employees SET first_name = ?, last_name = ?, email_address = ?`, birth_date = ?`, department_id = ? WHERE id = ?');
+    return $stmt->execute([$first_name, $last_name, $email_address, $birth_date, $department_id, $id]);
+  }
+
   public function create($employee) {
     $stmt = $this->conn->prepare("INSERT INTO " . $this->table . " (first_name, last_name, email_address, birth_date, department_id) VALUES (?, ?, ?, ?, ?)");
     $stmt->execute([

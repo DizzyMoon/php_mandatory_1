@@ -14,6 +14,10 @@ class EmployeeService {
     $this->repository = new EmployeeRepository($db);
   }
 
+  public function updateEmployee($id, $first_name, $last_name, $email_address, $birth_date, $department_id) {
+    $employee = $this->repository->update($id, $first_name, $last_name, $email_address, $birth_date, $department_id);
+  }
+
   public function getEmployees() {
     return $this->repository->getAll();
   }

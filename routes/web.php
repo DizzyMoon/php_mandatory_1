@@ -50,6 +50,10 @@ if($requestMethod == 'GET' && $requestUri == '/mandatory_1/departments') {
   $employeeController->create();
 } elseif ($requestMethod == 'POST' && $requestUri == '/mandatory_1/employees/'){
   $employeeController->store();
+} elseif ($requestMethod == 'GET' && preg_match("#^/mandatory_1/employees/(\d+)/edit$#", $requestUri, $matches)){
+  $employeeController->edit($matches[1]);
+} elseif ($requestmethod == 'POST' && preg_match('#^/mandatory_1/employees/(\d+)/update$#', $requestUri, $matches)){
+  $employeeController->update($matches[1]);
 } elseif (preg_match('/mandatory_1\/employees\/(\d+)/', $requestUri, $matches)){
   $employeeController->show($matches[1]);
 
